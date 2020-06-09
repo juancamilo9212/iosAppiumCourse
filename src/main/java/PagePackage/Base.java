@@ -39,9 +39,9 @@ public class Base {
 
     public IOSDriver browserCapabilities() throws MalformedURLException {
         DesiredCapabilities capabilities=new DesiredCapabilities();
-        capabilities.setCapability(MobileCapabilityType.BROWSER_NAME,"safari");
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION,"13.5");
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"iPhone 8");
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME,"IOS");
+        capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.IOS_XCUI_TEST);
         driver=new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("http://gmail.com");
@@ -52,11 +52,12 @@ public class Base {
         DesiredCapabilities capabilities=new DesiredCapabilities();
         capabilities.setCapability(MobileCapabilityType.BROWSER_NAME,"safari");
         capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION,"13.5");
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"iPhone 8");
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"iPhone de Juan");
         capabilities.setCapability("xcodeOrgId","89PA3NYMJK");//Membership developer.apple.com
         capabilities.setCapability("xcodeSigningId","iPhone Developer");
         capabilities.setCapability("udid","00008020-0016518C21D1002E");
-        capabilities.setCapability("updateWDABundleId","");
+        capabilities.setCapability("updateWDABundleId","com.exoImaging.WebDriverAgentRunner");
+        capabilities.setCapability(MobileCapabilityType.APP,"/Users/juan.camargo/Library/Developer/Xcode/DerivedData/UICatalog-broiyvrzkmazoaacibqyqvzenpih/Build/Products/Debug-iphonesimulator/UICatalog.app");
         driver=new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         return driver;
